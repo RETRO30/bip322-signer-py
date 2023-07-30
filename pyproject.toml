@@ -1,0 +1,30 @@
+[build-system]
+requires = ["maturin>=0.14,<0.15"]
+build-backend = "maturin"
+
+[project]
+name = "bip322-signer"
+version = "0.0.1"
+description = "Simple bitcoin message signer for nested segwit and taproot wallets(for Python ext)"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "LICENSE"}
+authors = [
+  {email = "ssh-off@ya.ru"},
+  {name = "RETRO30"}
+]
+
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11"
+]
+
+[project.urls]
+repository = "https://github.com/RETRO30/bip322-signer-py"
+homepage = "https://github.com/RETRO30/bip322-signer-py"

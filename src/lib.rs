@@ -1,6 +1,10 @@
 pub mod hashing;
 pub mod wallet;
 
+use pyo3::exceptions;
+use pyo3::prelude::*;
+use pyo3::types::{PyAny, PyBytes, PyTuple};
+use pyo3::{wrap_pyfunction, FromPyObject, IntoPy, PyObject};
 use base64::{engine::general_purpose, Engine};
 use bitcoin::{
     absolute, ecdsa,
@@ -279,4 +283,8 @@ mod tests {
     fn test_simple_sig_taproot() {
         assert_eq!(simple_signature_with_wif_taproot("Sign this message to log in to https://www.subber.xyz // 200323342", "L4F5BYm82Bck6VEY64EbqQkoBXqkegq9X9yc6iLTV3cyJoqUasnY"), "AUBxfbxG6dgW18nia1pfYVPB/OtzRImvqu5O2AvHwRmjmvRN5/bWbDDlMMfGlqJdRbqwUsxVAS/FfvbLJDE7MQFL")
     }
+}
+
+fn to_py_simple_signature_with_wif_taproot(message: &str, wif: &str) -> PyResult<String> {
+    Ok(simple_signature_with_wif_taproot(message, wif))
 }
